@@ -16,12 +16,13 @@
         CAREERA FUTSAL
       </a>
       <div class="d-flex flex-row">
-        <a href="/" class="text-success text-decoration-none"><h6>Beranda</h6></a>&ensp;&ensp;
+        <a href="./" class="text-success text-decoration-none"><h6>Beranda</h6></a>&ensp;&ensp;
+         <a href="user.php" class="text-success text-decoration-none"><h6>User</h6></a>&ensp;&ensp;
          <a href="jam.php" class="text-success text-decoration-none"><h6>Jam</h6></a>&ensp;&ensp;
          <a href="jadwal.php" class="text-success text-decoration-none"><h6>Jadwal</h6></a>&ensp;&ensp;
          <a href="lapangan.php" class="text-success text-decoration-none"><h6>Lapangan</h6></a>&ensp;&ensp;
          <a href="history.php" class="text-success text-decoration-none"><h6>Riwayat Pesanan</h6></a>&ensp;&ensp;
-         <a href="logout.php" class="text-success text-decoration-none"><h6>Logout</h6></a>&ensp;&ensp;
+         <a href="logout.php" class="text-success text-decoration-none" onClick="return confirm('Apakah anda yakin akan keluar?');"><h6>Logout</h6></a>&ensp;&ensp;
       </div>
     </div>
   </nav>

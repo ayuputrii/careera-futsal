@@ -43,15 +43,28 @@
           </div>
 
           <div class="mb-3">
-            <label for="tgl_jadwal" class="form-label text-dark">Jam</label>
+            <label for="jam_mulai" class="form-label text-dark">Jam Mulai</label>
             <div class="form-floating">
-              <select class="form-select" id="jam" name="jam" aria-label="Floating label select example" required>
-                  <option selected>Pilih Jam</option>
+              <select class="form-select" id="jam_mulai" name="jam_mulai" aria-label="Floating label select example" required>
+                  <option selected>Pilih Jam Mulai</option>
                   <?php foreach ($resultJam as $option) { ?>
                     <option><?php echo $option['jam']; ?></option>
                   <?php }?>
               </select>
-              <label for="jam">Pilih Jam</label>
+              <label for="jam_mulai">Pilih Jam Mulai</label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="jam_selesai" class="form-label text-dark">Jam Selesai</label>
+            <div class="form-floating">
+              <select class="form-select" id="jam_selesai" name="jam_selesai" aria-label="Floating label select example" required>
+                  <option selected>Pilih Jam Selesai</option>
+                  <?php foreach ($resultJam as $option) { ?>
+                    <option><?php echo $option['jam']; ?></option>
+                  <?php }?>
+              </select>
+              <label for="jam_selesai">Pilih Jam Selesai</label>
             </div>
           </div>
 
@@ -79,7 +92,8 @@
               <th scope="col">No</th>
               <th scope="col">Tanggal Jadwal</th>
               <th scope="col">Nomor Lapangan</th>
-              <th scope="col">Jam</th>
+              <th scope="col">Jam Mulai</th>
+              <th scope="col">Jam Selesai</th>
               <th scope="col">Harga</th>
               <th scope="col">Status Lapangan</th>
               <th scope="col">Aksi</th>
@@ -92,7 +106,8 @@
                 <th scope="row"><?= $no++; ?></th>
                 <th scope="row"><?= $jadwal['tgl_jadwal']; ?></th>
                 <th scope="row"><?= $jadwal['nomor_lapangan']; ?></th>
-                <th scope="row"><?= $jadwal['jam']; ?></th>
+                <th scope="row"><?= $jadwal['jam_mulai']; ?></th>
+                <th scope="row"><?= $jadwal['jam_selesai']; ?></th>
                 <th scope="row">Rp <?php echo number_format($jadwal['harga'],0,',','.'); ?></th>
                 <th scope="row"><?= $jadwal['status_lapangan']; ?></th>
                 <th scope="row" class="d-flex flex-row">

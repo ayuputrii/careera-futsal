@@ -5,10 +5,13 @@
   $resultLapangan = $db->query($lapangan);
   $optionsLapangan= mysqli_fetch_all($resultLapangan, MYSQLI_ASSOC);
 
-  
-  $jam ="SELECT jam FROM tb_jam";
-  $resultJam = $db->query($jam);
-  $optionsJam= mysqli_fetch_all($resultJam, MYSQLI_ASSOC);
+  $start ="SELECT jam_mulai FROM tb_jadwal";
+  $resultStart = $db->query($start);
+  $optionsMulai= mysqli_fetch_all($resultStart, MYSQLI_ASSOC);
+
+  $jam_selesai ="SELECT jam_selesai FROM tb_jadwal";
+  $resultEnd = $db->query($jam_selesai);
+  $optionSelesai= mysqli_fetch_all($resultEnd, MYSQLI_ASSOC);
 
   //mengambil data dari kode jadwal
   $kode_jadwal = (int)$_GET['kode_jadwal'];
@@ -51,15 +54,28 @@
           </div>
 
           <div class="mb-3">
-            <label for="jam" class="form-label text-dark">Jam</label>
+            <label for="jam_mulai" class="form-label text-dark">Jam Mulai</label>
             <div class="form-floating">
-              <select class="form-select" id="jam" name="jam" aria-label="Floating label select example">
-                <option selected value="<?= $jadwal['jam']; ?>"><?= $jadwal['jam']; ?></option>
-                <?php foreach ($resultJam as $option) { ?>
-                  <option><?php echo $option['jam']; ?></option>
+              <select class="form-select" id="jam_mulai" name="jam_mulai" aria-label="Floating label select example">
+                <option selected value="<?= $jadwal['jam_mulai']; ?>"><?= $jadwal['jam_mulai']; ?></option>
+                <?php foreach ($optionsMulai as $option) { ?>
+                  <option><?php echo $option['jam_mulai']; ?></option>
                 <?php }?>
               </select>
-              <label for="jam">Pilih Jam</label>
+              <label for="jam_mulai">Pilih Jam Mulai</label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="jam_selesai" class="form-label text-dark">Jam Selesai</label>
+            <div class="form-floating">
+              <select class="form-select" id="jam_selesai" name="jam_selesai" aria-label="Floating label select example">
+                <option selected value="<?= $jadwal['jam_selesai']; ?>"><?= $jadwal['jam_selesai']; ?></option>
+                <?php foreach ($optionSelesai as $option) { ?>
+                  <option><?php echo $option['jam_selesai']; ?></option>
+                <?php }?>
+              </select>
+              <label for="jam_selesai">Pilih Jam Selesai</label>
             </div>
           </div>
 

@@ -1,33 +1,6 @@
 <?php
   include 'db.php';
 
-  //Login
-  function login($query){
-    global $db;
-
-    $username = $post['username'];
-    $password = $post['password'];
-
-    $query = mysqli_query($db, $query);
-    $cek = mysqli_num_rows($query);
-
-    if($cek > 0){
-      $data = mysqli_fetch_assoc($login);
-      if($data['level'] === 'admin'){
-        $_SESSION['username'] = $username;
-        $_SESSION['level'] = "admin";
-        header("location:home.php");
-      }else{
-        $_SESSION['password'] = $password;
-        $_SESSION['level'] = "user";
-        header("location:home-user.php");
-      }
-    }
-
-    mysqli_query($db, $query);
-    return mysqli_affected_rows($db);
-  }
-
   //fungsi untuk menampilkan data
   function select($query){
     global $db;
@@ -45,6 +18,17 @@
 
     return $rows;
   }
+  
+  //fungsi untuk menampilkan jumlah data
+  function total($query){
+    global $db;
+
+    $result = mysqli_query($db, $query);
+    $jumlah = mysqli_num_rows($result);
+
+    return $jumlah;
+  }
+
 
   //fungsi untuk mencari riwayat pesanan
   function search($query){
@@ -81,11 +65,12 @@
 
       $tgl_jadwal = $post['tgl_jadwal'];
       $nomor_lapangan = $post['nomor_lapangan'];
-      $jam = $post['jam'];
+      $jam_mulai = $post['jam_mulai'];
+      $jam_selesai = $post['jam_selesai'];
       $harga = $post['harga'];
       $status_lapangan = $post['status_lapangan'];
 
-      $query = "INSERT INTO tb_jadwal VALUES(null, '$tgl_jadwal', '$nomor_lapangan', '$jam', '$harga', '$status_lapangan')";
+      $query = "INSERT INTO tb_jadwal VALUES(null, '$tgl_jadwal', '$nomor_lapangan', '$jam_mulai', '$jam_selesai', '$harga', '$status_lapangan')";
       mysqli_query($db, $query);
       return mysqli_affected_rows($db);
     }
@@ -148,15 +133,14 @@
       $kode_jadwal = $post['kode_jadwal'];
       $tgl_jadwal = $post['tgl_jadwal'];
       $nomor_lapangan = $post['nomor_lapangan'];
-      $jam = $post['jam'];
+      $jam_mulai = $post['jam_mulai'];
+      $jam_selesai = $post['jam_selesai'];
       $harga = $post['harga'];
       $status_lapangan = $post['status_lapangan'];
 
-      $query = "UPDATE tb_jadwal SET tgl_jadwal = '$tgl_jadwal', 'nomor_lapangan' = '$nomor_lapangan', 'jam' = '$jam', 'harga' = '$harga', 'status_lapangan' = '$status_lapangan' WHERE kode_jadwal= '$kode_jadwal'";
+      $query = "UPDATE tb_jadwal SET tgl_jadwal = '$tgl_jadwal', nomor_lapangan = '$nomor_lapangan', jam_mulai = '$jam_mulai', jam_selesai = '$jam_selesai', harga = '$harga', status_lapangan = '$status_lapangan' WHERE kode_jadwal='$kode_jadwal'";
       mysqli_query($db, $query);
-      die ("Query gagal dijalankan: ".mysqli_errno($db).
-      " - ".mysqli_error($db));
-      // return mysqli_affected_rows($db);
+      return mysqli_affected_rows($db);
     }
     //fungsi untuk mengubah data lapangan
     function updateLapangan($post){
@@ -222,10 +206,17 @@
       return mysqli_affected_rows($db);
     }
     //fungsi untuk hapus data history
-    function deleteHistory($id_history){
+    function deleteReservasi($id_reservasi){
       global $db;
 
-      mysqli_query($db, "DELETE FROM tb_history WHERE id_history=$id_history");
+      mysqli_query($db, "DELETE FROM tb_reservasi WHERE id_reservasi=$id_reservasi");
+      return mysqli_affected_rows($db);
+    }
+    //fungsi untuk hapus data user
+    function deleteUser($id_user){
+      global $db;
+
+      mysqli_query($db, "DELETE FROM tb_user WHERE id_user=$id_user");
       return mysqli_affected_rows($db);
     }
 ?>

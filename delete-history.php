@@ -1,10 +1,10 @@
 <?php
   include 'layout/header.php';
-  $id_history = (int)$_GET['id_history'];
+  $id_reservasi = (int)$_GET['id_reservasi'];
   
-  if(deleteHistory($id_history) > 0){
-    echo "<script>alert('Data Berhasil Dihapus.'); document.location.href= history.php'; </script>";
+  if(deleteReservasi($id_reservasi) > 0){
+    echo "<script>alert('Data Berhasil Dihapus.'); document.location.href='history.php'; </script>";
   }else{
-    echo "<script>alert('Data Gagal Untuk Dihapus.'); document.location.href= history.php'; </script>";
+    echo "<script>alert('Data Gagal Untuk Dihapus.'); document.location.href='history.php'; </script>";
   }
 ?>
