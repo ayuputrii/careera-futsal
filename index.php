@@ -1,44 +1,14 @@
-<?php 
-  include 'layout/header.php';
-
-	$jumlahUser = total("SELECT * FROM tb_user");
-	$jumlahLapangan = total("SELECT * FROM tb_lapangan");
-	$jumlahJam = total("SELECT * FROM tb_jam");
-	$jumlahJadwal = total("SELECT * FROM tb_jadwal");
-  
+<?php
+include 'layout/header-not-login.php';
 ?>
-  <div class="p-4 mt-4">
-    <div class="d-flex justify-content-between">
-      <div class="col-8">
-        <h2 class="text-dark">Selamat Datang di Website Admin Careera Futsal Subang!</h2>
-        <p>Careera Futsal Subang, konsep olahraga Futsal berstandar Internasional dengan fasilitas Mewah dan Cool, sangat nyaman untuk hangout di kota Subang.</p>
-
-        <div class="d-flex flex-row mt-4">
-          <div class="bg-white shadow pb-4 pt-4 rounded w-75" style="text-align: center; margin-right: 10px;">
-            <h4 class="text-dark text-opacity-75">Total User</h4>
-            <h2 class="text-secondary"><?php echo $jumlahUser; ?></h2>
-          </div>
-          <div class="bg-white shadow pb-4 pt-4 rounded w-50" style="text-align: center; margin-right: 10px;">
-            <h4 class="text-dark text-opacity-75">Total Lapangan</h4>
-            <h2 class="text-secondary"><?php echo $jumlahUser; ?></h2>
-          </div>
-        </div>
-
-        <div class="d-flex flex-row mt-4">
-          <div class="bg-white shadow pb-4 pt-4 rounded w-50" style="text-align: center; margin-right: 10px;">
-            <h4 class="text-dark text-opacity-75">Total Jam</h4>
-            <h2 class="text-secondary"><?php echo $jumlahJam; ?></h2>
-          </div> 
-          <div class="bg-white shadow pb-4 pt-4 rounded w-50" style="text-align: center; margin-right: 10px;">
-            <h4 class="text-dark text-opacity-75">Total Jadwal</h4>
-            <h2 class="text-secondary"><?php echo $jumlahJadwal; ?></h2>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex flex-row-reverse p-4 mb-3 align-self-end">
-        <img src="assets/icon/futsal-logo.svg" alt="" width="100%" height="100%" class="d-inline-block align-text-center">
-      </div>
+<div style="position: relative;">
+  <div style="position: absolute; z-index: 10; right: 100px; top: 150px;">
+    <div class="bg-secondary bg-opacity-50 rounded-5" style="padding: 36px; width: 600px;">
+      <h2 style="text-align: center; font-weight: bold;">Selamat Datang</h2>
+      <h2 style="text-align: center; font-weight: bold;">Di website</h2>
+      <h2 style="text-align: center; font-weight: bold;">Carrera Futsal Subang</h2>
+      <h5 style="text-align: center; font-weight: bold; margin-top: 16px;" class="mt-4 text-dark text-opacity-50">Lapangan Futsal terbaik Untuk Tempat Bermain Anda</h5>
     </div>
-   
   </div>
-<?php include 'layout/footer.php'?>
+  <img src="assets/image/background.png" width="100%" height="100%" />
+</div>

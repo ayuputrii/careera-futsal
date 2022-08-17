@@ -1,4 +1,4 @@
 <?php
-    include 'controller.php';
-    include 'db.php';
-?>
+include 'db.php';
+include 'controller.php';
+include 'auth-controller.php';
